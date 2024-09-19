@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Discord Silicon Valley">
+  <meta property="og:description" content="Discord Silicon Valley is the place where some discord nerds work on the best discord tools and bots you will ever need, by akeanti.">
+  <meta property="og:image" content="https://images-ext-1.discordapp.net/external/gv-ZsWl596vIx-QuH7q_2f48HJGfuPBumj_djonXxgA/%3Fsize%3D1024/https/cdn.discordapp.com/icons/1213837997485850664/8c8b3a4740d8ab7518ae6b553e85ea34.png?format=webp&quality=lossless&width=523&height=523">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Discord Silicon Valley</title>
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+      background-color: #0d0d0d;
+      color: #ffffff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated Background */
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #0d0d0d, #121212);
+      z-index: -1;
+      animation: backgroundAnimation 10s linear infinite;
+    }
+
+    @keyframes backgroundAnimation {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.8);
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+      transition: background 0.3s;
+    }
+
+    nav:hover {
+      background: rgba(10, 10, 10, 1);
+    }
+
+    nav .logo {
+      width: 50px;
+      height: auto;
+      margin-right: 15px;
+    }
+
+    nav h1 {
+      font-size: 2em;
+      color: #58a6ff;
+      letter-spacing: 2px;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin-left: auto;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 1.2em;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #58a6ff;
+      color: #101010;
+    }
+
+/* Typing Animation for Welcome Message */
+#welcome-message {
+  font-size: 2.5em;
+  color: #58a6ff;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  border-right: 3px solid #58a6ff;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+  /* Ensure the text is visible after typing */
+  width: 100%;
+}
+
+/* Typing Keyframes */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Caret Blinking Animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #58a6ff; }
+}
+
+
+    /* Profile Section */
+    .profile {
+      margin-top: 80px;
+      text-align: center;
+      background-color: #121212;
+      padding: 50px 20px;
+      position: relative;
+      animation: fadeInUp 1.5s ease-in-out;
+    }
+
+    .profile-info {
+      margin-top: 50px;
+      padding: 0 20px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .profile-info h2 {
+      font-size: 2.5em;
+      color: #58a6ff;
+      letter-spacing: 1px;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .profile-info p {
+      font-size: 1.2em;
+      color: #8b949e;
+      margin: 10px 0;
+    }
+
+    .social-links a {
+      color: #58a6ff;
+      text-decoration: none;
+      font-size: 1.2em;
+      margin: 0 10px;
+      position: relative;
+      padding-bottom: 5px;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #ffffff;
+    }
+
+    .social-links a:hover::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #58a6ff;
+      animation: underline 0.3s ease;
+    }
+
+    @keyframes underline {
+      0% { width: 0; }
+      100% { width: 100%; }
+    }
+
+    /* Bot Listing Section */
+    .bot-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 40px;
+      padding: 60px;
+      margin-top: 50px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .bot-card {
+      background-color: #1a1a1d;
+      border-radius: 15px;
+      padding: 0;
+      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .bot-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.95);
+    }
+
+    .bot-card .banner {
+      height: 120px;
+      background: linear-gradient(135deg, #58a6ff, #3f5efb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .bot-card:hover .banner {
+      transform: scale(1.05);
+    }
+
+    .bot-card .banner img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 3px solid white;
+    }
+
+    .bot-card .content {
+      padding: 20px;
+    }
+
+    .bot-card h3 {
+      font-size: 1.8em;
+      color: #ffffff;
+      margin-top: 10px;
+    }
+
+    .bot-card p {
+      font-size: 1.1em;
+      color: #c9d1d9;
+      margin: 10px 0;
+    }
+
+    .bot-card .version {
+      font-size: 0.9em;
+      color: #8b949e;
+      margin-top: 5px;
+    }
+
+    .bot-card a {
+      text-decoration: none;
+      background-color: #3f5efb;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      margin-top: 20px;
+      display: inline-block;
+      transition: background-color 0.3s ease, transform 0.3s;
+    }
+
+    .bot-card a:hover {
+      background-color: #1f40a1;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      padding: 20px;
+      text-align: center;
+      background-color: #121212;
+      border-top: 3px solid #3f5efb;
+      color: #8b949e;
+      margin-top: 30px;
+      position: relative;
+    }
+
+    footer:hover {
+      color: #ffffff;
+      background-color: #1a1a1d;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    footer a {
+      color: #58a6ff;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    /* Responsive Queries */
+    @media screen and (max-width: 768px) {
+      .bot-container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+
+      .profile-info h2 {
+        font-size: 2em;
+      }
+
+      .profile-info p {
+        font-size: 1.1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="background"></div>
+
+  <!-- Navbar -->
+  <nav>
+    <img src="log.png" alt="Logo" class="logo">
+    <h1>Discord Silicon Valley</h1>
+    <ul>
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#bots">Bots</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="profile" class="profile">
+    <div class="profile-info">
+      <h2 id="welcome-message">Welcome to Discord Silicon Valley</h2>
+      <p>Building powerful and creative Discord bots to enhance your server's experience.</p>
+      <div class="social-links">
+        <a href="https://tux-discord-bot.github.io/">Discord</a>
+        <a href="https://github.com/akeanti">GitHub</a>
+        <a href="https://akeanti.github.io/">Website</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bot Listing -->
+  <section id="bots" class="bot-container">
+    <div class="bot-card">
+      <div class="banner">
+        <img src="tux.png" alt="TuxBot Profile Picture">
+      </div>
+      <div class="content">
+        <h3>TuxBot</h3>
+        <p>An all-in-one solution for managing your Discord community.</p>
+        <span class="version">Version 0.4</span><br>
+        <a href="https://tux-discord-bot.github.io/">Learn More</a>
+      </div>
+    </div>
+    <div class="bot-card">
+      <div class="banner">
+        <img src="https://images-ext-1.discordapp.net/external/5-61t-IHobbs_X0i-5rLtl6p2fJqkmkCrRkMhJgMDP0/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1277022737696690237/85c6fa8e830c22883cd8570763b51fbb.png?format=webp&quality=lossless&width=523&height=523" alt="EnsBot Profile Picture">
+      </div>
+      <div class="content">
+        <h3>Pokemon</h3>
+        <p>The best discord pokemon games, with AI features.</p>
+        <span class="version">Version 0.1 (Beta)</span><br>
+        <a href="https://discord.com/oauth2/authorize?client_id=1277022737696690237">Learn More</a>
+      </div>
+    </div>
+    <div class="bot-card">
+      <div class="banner">
+        <img src="https://images-ext-1.discordapp.net/external/V0YeGxsSccM7mGpqIPbu3IIydLC54Q8xX278BvxOpZA/%3Fsize%3D1024/https/cdn.discordapp.com/icons/1213837849992888350/864615cf89ce2b3083f237e7f6b0ca7d.png?format=webp&quality=lossless&width=375&height=375" alt="TuxBot Profile Picture">
+      </div>
+      <div class="content">
+        <h3>Better Embeds</h3>
+        <p>The new version of Webhook Embeds, with the best features.</p>
+        <span class="version">Version 1.0</span><br>
+        <a href="https://better-embeds.github.io/">Learn More</a>
+      </div>
+    </div>
+    <div class="bot-card">
+      <div class="banner">
+        <img src="https://media.discordapp.net/attachments/1275150549695860807/1286012236644745236/5822ee8d1b4c6b9d.png?ex=66ec5bba&is=66eb0a3a&hm=2af613fc36bc9ef0846b94456eb556ebfac63e261dd122a780c315a8ddd4e318&=&format=webp&quality=lossless&width=437&height=437" alt="TuxBot Profile Picture">
+      </div>
+      <div class="content">
+        <h3>Svg 2 Png</h3>
+        <p>Generate the best imgaes and send them as embeds in webhooks to discord!</p>
+        <span class="version">Version 0.1</span><br>
+        <a href="https://akeanti.github.io/SVG-2-Embed/">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Copyright &copy; 2024 Discord Silicon Valley</p>
+    <p><a href="https://tux-discord-bot.github.io/Privacy-Policy/">Privacy Policy</a> | <a href="https://tux-discord-bot.github.io/TOS/">Terms of Service</a></p>
+  </footer>
+
+</body>
+</html>
